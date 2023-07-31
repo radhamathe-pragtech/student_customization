@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <!--================code for pharmacy tree vies===========================-->
+        <record id="view_student_tree" model="ir.ui.view">
+            <field name="name">student.student.tree</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <tree string="Student">
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="classes"/>
+                </tree>
+            </field>
+        </record>
+        <!--========================code for pharmacy form view=========================-->
+        <record id="view_student_form" model="ir.ui.view">
+            <field name="name">student.student.form</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                    <form string="Student">
+                        <sheet>
+                            <group>
+                                <group>
+                                    <field name="name"/>
+                                    <field name="age"/>
+                                </group>
+                                <group>
+                                    <field name="classes"/>
+                                </group>
+                            </group>
+                        </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!--====================code for pharamcy action form========================-->
+        <record id="action_student" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="res_model">student.student</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Student
+                </p>
+            </field>
+        </record>
+            <menuitem id="menu_student_main"
+                    name="Student"
+                    sequence="1"/>
+
+                <menuitem id="menu_student_student"
+                        name="Student"
+                        parent="menu_student_main"
+                        action="action_student"
+                        sequence="1" />
+    </data>
+</odoo>
